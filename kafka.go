@@ -42,7 +42,7 @@ func NewKafkaAdapter(route *router.Route) (router.LogAdapter, error) {
 	if text := os.Getenv("KAFKA_TEMPLATE"); text != "" {
 		funcMap := template.FuncMap{
 			"trimPrefix": strings.TrimPrefix,
-			"trimSuffix": strings.TrimSuffix
+			"trimSuffix": strings.TrimSuffix,
 		}
 		tmpl, err = template.New("kafka").Funcs(funcMap).Parse(text)
 		if err != nil {
